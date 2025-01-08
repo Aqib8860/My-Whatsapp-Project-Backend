@@ -40,3 +40,8 @@ async def register(
     form_data: User
 ):
     return await views.register_user_view(db, form_data)
+
+
+@api_router.get("/users/")
+async def get_users_list():
+    return await views.get_users_view(db)
