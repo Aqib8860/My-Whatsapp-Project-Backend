@@ -4,8 +4,11 @@ from typing import Optional, List, Dict, Any
 
 
 class User(BaseModel):
-    name: str
-    number: str
+    first_name: str
+    first_name: Optional[str] = None
+    country: str
+    state: str
+    phone: str
     email: str
     password: str
     generated_on: datetime = Field(default_factory=datetime.now)
