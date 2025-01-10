@@ -45,3 +45,11 @@ async def register(
 @api_router.get("/users/")
 async def get_users_list():
     return await views.get_users_view(db)
+
+
+@api_router.get("/check-email/{email}")
+async def check_email(
+    email: str,
+):
+    return await views.check_email_view(db, email)
+
