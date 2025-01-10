@@ -40,4 +40,13 @@ async def get_users_view(db):
     return JSONResponse(users)
 
 
+async def check_email_view(db, email):
+    user = await db.get_collection('users').find_one({"email": email})
+    print("user ", user)
+    if user:
+        return JSONResponse({"message": "Email already exists"}, status_code=400)
+    else:
+        return JSONResponse({"message": "Email not exists"}, status_code=200)
+        
+
 
